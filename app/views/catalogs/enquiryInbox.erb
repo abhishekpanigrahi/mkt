@@ -1,0 +1,13 @@
+<div id="">There are <span id="wishlistcontainer">0</span> Products in your wish List</div>
+
+
+<% @enquiryInboxData.each do |product| %>
+        <h2><%= product.product_name %><br />
+          <span><%= product.product_brand %>(Quantity : <%= product.product_quantity %>)</span> </h2>
+        <img src="<%= product.product_image %>" alt="" width="585" height="156" />
+        <div class="clr"></div>
+        <p><%= product.product_title %></p>
+        <p> <a href="../catalogs/<%= product.product_id %>">See More</a><br />
+        	<a href="javascript:return void(0);" onclick="return addToWishList(1)">ADD TO WISHLIST</a>
+        </p>
+<% end %>

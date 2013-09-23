@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+    <h2><%= @product.product_name %><br />
+      <span><%= @product.product_brand %>(Quantity : <%= @product.product_quantity %>)</span> </h2>
+    <img src="<%= @product.product_image %>" alt="" width="585" height="156" />
+    <div class="clr"></div>
+    <p class="ProductDetails"><b>Product Description :</b> <%= @product.product_title %>
+<br/>
+  <b>Product Brand :</b><%= @product.product_brand %>
+<br/>
+<b>Quantity :</b>
+  <%
+   className = ""
+   availableMessage = ""
+   if @product.product_quantity != 0 
+      className = ""
+      availableMessage = @product.product_quantity
+  else
+      className = "red"
+      availableMessage = "Out of Stock"     
+  end
+  %>
+  <span class='<%= className %>'><%= availableMessage %></span>
+<!-- <br/>
+  <b>Quantity :</b>&#8377;<%= @product.product_price %> -->
+<br/>
+  <b>Product Price :</b>&#8377;<%= @product.product_price %>
+<br/>
+	<b>Cut Price :</b> <strike>&#8377;<%= @product.product_cut_price %></strike>
+<br/>
+	 <% 
+   className = ""
+   availableMessage = ""
+   if @product.is_available == 0 
+	 		className = "green"
+      availableMessage = "Product is Available"
+ 	else
+      className = "red"
+      availableMessage = "Product Un-Available"			
+ 	end
+	 	%>
+    <span class='<%= className %>'><%= availableMessage %></span>
+<br/>
+<%
+   
+   availableMessage = ""
+   if @product.sold_online == 0 
+  
+      availableMessage = "Sold Online"
+  else
+
+      availableMessage = "Only Available In Outlets"     
+  end
+    %>
+    <span><%= availableMessage %></span>
+<br/>
+    </p>
+    
+
+<%= link_to 'Back', catalogs_path %>

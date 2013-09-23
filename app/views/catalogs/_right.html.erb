@@ -1,0 +1,55 @@
+<h2>Sidebar Menu</h2>
+
+<marquee behavior="scroll" direction="up" height="300" onmouseover="this.stop()" onmouseout="this.start()">
+  <div style="width:243px; height:100%;">
+    <%
+        if !@featured_products.blank? %>
+        <% for item in @featured_products %>
+        <div class="rightComponents">
+          <div class="imageContainer">
+              <img src="<%= item.product_image %>" width="150" height="100" />
+          </div></br>
+          <div class="ProductName"><a href="../catalogs/<%= item.product_id %>"><%= item.product_name %></a></div>
+          <div class="Price">&#8377;<%= item.product_price %>
+              <%
+                  if item.product_cut_price == 0
+                    %>
+                    <strike><%=  item.product_cut_price %></strike>
+                    <%
+                  end
+              %>
+          </div>
+          <br>
+          <p><hr/></p>
+          <br>
+        </div>
+        <% end %>
+      <% else %>
+        <div class="">No Featuerd Products Available</div>
+      <% end %>
+</div></marquee>
+
+
+<!-- <marquee  behavior="scroll" direction="up">Your upward scrolling text goes here</marquee> -->
+        <!-- <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">TemplateInfo</a></li>
+          <li><a href="#">Style Demo</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Archives</a></li>
+        </ul>
+        <h2>Sponsors</h2>
+        <ul class="sponsors">
+          <li class="sponsors"><a href="http://www.dreamtemplate.com">DreamTemplate</a><br />
+            Over 6,000+ Premium Web Templates</li>
+          <li class="sponsors"><a href="http://www.templatesold.com/">TemplateSOLD</a><br />
+            Premium WordPress &amp; Joomla Themes</li>
+          <li class="sponsors"><a href="http://www.imhosted.com">ImHosted.com</a><br />
+            Affordable Web Hosting Provider</li>
+          <li class="sponsors"><a href="http://www.csshub.com/">CSS Hub</a><br />
+            Premium CSS Templates</li>
+          <li class="sponsors"><a href="http://www.evrsoft.com">Evrsoft</a><br />
+            Website Builder Software &amp; Tools</li>
+          <li class="sponsors"><a href="http://www.myvectorstore.com">MyVectorStore</a><br />
+            Royalty Free Stock Icons</li>
+        </ul> -->

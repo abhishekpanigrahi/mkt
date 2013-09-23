@@ -1,0 +1,94 @@
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :product_name %><br />
+    <%= f.text_field :product_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :product_brand %><br />
+    <%= f.text_field :product_brand %>
+  </div>
+
+  <div class="field">
+    <%= f.label :product_title %><br />
+    <%= f.text_field :product_title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :product_image %><br />
+    <%= f.text_field :product_image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :product_price %><br />
+    <%= f.number_field :product_price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :product_cut_price %><br />
+    <%= f.number_field :product_cut_price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :product_quantity %><br />
+    <%= f.number_field :product_quantity %>
+  </div>
+
+
+  <div class="field">
+
+   <%= f.radio_button :is_available, 'is_available' %> 
+   <%= label :is_available, 'Available' %>
+
+   <%= f.radio_button :is_available, 'is_available' %>
+   <%= label :is_available, 'Not Available' %>
+
+  </div>
+
+<div class="field">
+
+    <%= f.radio_button :sold_online, 0 %>
+    <%= label :sold_online, 'Sold Online' %>
+
+    <%= f.radio_button :sold_online,1 %>
+    <%= label :sold_online, 'Not Sold Online' %>
+
+</div>
+
+  <div class="field">
+
+    <%= f.radio_button :featured_product,0 %>
+    <%= label :featured_product, 'Featured Product' %>
+
+    <%= f.radio_button :featured_product,1 %>
+    <%= label :featured_product, 'Non-Featured Product' %>
+
+</div>
+
+
+  <div class="field">
+    <%= f.radio_button :is_active,0 %>
+    <%= label :is_active, 'Active' %>
+
+    <%= f.radio_button :is_active,1  %>
+    <%= label :is_active, 'In-Active' %>
+</div>
+
+<div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
